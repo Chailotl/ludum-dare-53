@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Package : MonoBehaviour, IStackable
+public class Parcel : MonoBehaviour, IStackable
 {
-	[SerializeField]
-	private Transform heldBy;
+	public Transform heldBy;
 
 	private float seed;
 
