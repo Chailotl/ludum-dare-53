@@ -16,12 +16,13 @@ public class Package : MonoBehaviour, IStackable
 
 	void FixedUpdate()
 	{
-		if (heldBy != null && heldBy.GetComponent<IStackable>() != null)
+		IStackable stack;
+		if (heldBy != null && (stack = heldBy.GetComponent<IStackable>()) != null)
 		{
-			// anchor point
-			transform.position = heldBy.position + heldBy.GetComponent<IStackable>().GetStackingPoint();
+			// Anchor point
+			transform.position = heldBy.position + stack.GetStackingPoint();
 
-			// random shake
+			// Random shake
 			transform.position += new Vector3(Mathf.PerlinNoise(Time.time / 2f + seed, 0) - 0.5f, 0, Mathf.PerlinNoise(Time.time / 2f + seed, 100) - 0.5f) / 4f;
 		}
 	}

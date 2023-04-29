@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour, IStackable
@@ -12,8 +13,12 @@ public class Player : MonoBehaviour, IStackable
 	[SerializeField]
 	private Vector3 stackingPoint = Vector3.up * 0.5f;
 
+	// Input
+	private Vector2 move = Vector2.zero;
+
+	// Physics
 	private Rigidbody rb;
-	private Vector3 move = Vector3.zero;
+	private Vector3 vel = Vector3.zero;
 
 	void Start()
 	{
@@ -22,34 +27,18 @@ public class Player : MonoBehaviour, IStackable
 
 	void Update()
 	{
-		Vector3 input = Vector3.zero;
+		vel = Vector3.MoveTowards(vel, new Vector3(move.x, 0, move.y), accel * Time.deltaTime);
 
-		if (Input.GetKey(KeyCode.W))
-		{
-			input.z += 1;
-		}
-		if (Input.GetKey(KeyCode.S))
-		{
-			input.z -= 1;
-		}
-		if (Input.GetKey(KeyCode.A))
-		{
-			input.x -= 1;
-		}
-		if (Input.GetKey(KeyCode.D))
-		{
-			input.x += 1;
-		}
-
-		input = input.normalized * moveSpeed;
-
-		move = Vector3.MoveTowards(move, input, accel * Time.deltaTime);
-
-		rb.velocity = move;
+		rb.velocity = vel;
 	}
 
 	public Vector3 GetStackingPoint()
 	{
 		return stackingPoint;
+	}
+
+	private void OnMove(InputValue val)
+	{
+		move = val.Get<Vector2>() * moveSpeed;
 	}
 }
