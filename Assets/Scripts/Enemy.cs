@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IStackable
 {
 	[SerializeField]
 	private Transform target;
+	[SerializeField]
+	private Vector3 stackingPoint = Vector3.up * 0.5f;
 
 	private NavMeshAgent agent;
 
@@ -19,5 +21,10 @@ public class Enemy : MonoBehaviour
 	void Update()
 	{
 		agent.destination = target.position;
+	}
+
+	public Vector3 GetStackingPoint()
+	{
+		return stackingPoint;
 	}
 }

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IStackable
 {
 	[SerializeField]
 	private float moveSpeed = 5;
 	[SerializeField]
 	private float accel = 25;
+	[SerializeField]
+	private Vector3 stackingPoint = Vector3.up * 0.5f;
 
 	private Rigidbody rb;
 	private Vector3 move = Vector3.zero;
@@ -44,5 +46,10 @@ public class Player : MonoBehaviour
 		move = Vector3.MoveTowards(move, input, accel * Time.deltaTime);
 
 		rb.velocity = move;
+	}
+
+	public Vector3 GetStackingPoint()
+	{
+		return stackingPoint;
 	}
 }
