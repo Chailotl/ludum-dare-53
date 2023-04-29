@@ -7,8 +7,11 @@ public class Player : MonoBehaviour
 {
 	[SerializeField]
 	private float moveSpeed = 5;
+	[SerializeField]
+	private float accel = 25;
 
 	private Rigidbody rb;
+	private Vector3 move = Vector3.zero;
 
 	void Start()
 	{
@@ -17,27 +20,29 @@ public class Player : MonoBehaviour
 
 	void Update()
 	{
-		Vector3 move = Vector3.zero;
+		Vector3 input = Vector3.zero;
 
 		if (Input.GetKey(KeyCode.W))
 		{
-			move.z += 1;
+			input.z += 1;
 		}
 		if (Input.GetKey(KeyCode.S))
 		{
-			move.z -= 1;
+			input.z -= 1;
 		}
 		if (Input.GetKey(KeyCode.A))
 		{
-			move.x -= 1;
+			input.x -= 1;
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
-			move.x += 1;
+			input.x += 1;
 		}
 
-		move.Normalize();
+		input = input.normalized * moveSpeed;
 
-		rb.velocity = move * moveSpeed;
+		move = Vector3.MoveTowards(move, input, accel * Time.deltaTime);
+
+		rb.velocity = move;
 	}
 }
