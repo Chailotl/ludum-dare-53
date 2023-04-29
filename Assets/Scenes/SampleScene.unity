@@ -843,7 +843,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320f82a9004fce84a98e0cc1687f0fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1362740089}
+  target: {fileID: 286554557}
   stackingPoint: {x: 0, y: 0.5, z: 0}
 --- !u!195 &1709289384
 NavMeshAgent:
@@ -1293,7 +1293,7 @@ GameObject:
   - component: {fileID: 2123780567}
   - component: {fileID: 2123780569}
   - component: {fileID: 2123780568}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Pickup Radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -31,7 +31,19 @@ public class Player : MonoBehaviour, IStackable
 	{
 		vel = Vector3.MoveTowards(vel, new Vector3(move.x, 0, move.y), accel * Time.deltaTime);
 
+		vel.y = rb.velocity.y;
 		rb.velocity = vel;
+		vel.y = 0;
+	}
+
+	public void DropParcel()
+	{
+		if (carrying.Count == 0) { return; }
+
+		Parcel parcel = carrying[carrying.Count - 1];
+
+		carrying.Remove(parcel);
+		parcel.Drop();
 	}
 
 	public Vector3 GetStackingPoint()
@@ -44,6 +56,7 @@ public class Player : MonoBehaviour, IStackable
 		move = val.Get<Vector2>() * moveSpeed;
 	}
 
+	// Pick up all parcels in range
 	private void OnPickup()
 	{
 		List<Parcel> parcels = GetComponentInChildren<ParcelPickup>().parcels;
@@ -54,15 +67,21 @@ public class Player : MonoBehaviour, IStackable
 			{
 				if (carrying.Count == 0)
 				{
-					parcel.heldBy = transform;
+					parcel.Pickup(transform);
 				}
 				else
 				{
-					parcel.heldBy = carrying[carrying.Count - 1].transform;
+					parcel.Pickup(carrying[carrying.Count - 1].transform);
 				}
 
 				carrying.Add(parcel);
 			}
 		}
+	}
+
+	// Drop one parcel
+	private void OnDrop()
+	{
+		DropParcel();
 	}
 }
