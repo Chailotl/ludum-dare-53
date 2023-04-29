@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 85419957}
   - component: {fileID: 85419956}
   m_Layer: 5
-  m_Name: Marker
+  m_Name: Indicator A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,7 +175,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1371376666}
-  width: 37.5
+  border: 25
+  boxSprite: {fileID: 21300000, guid: 897b09bc31813334f9e1b7a59a2d82f2, type: 3}
+  arrowSprite: {fileID: 21300000, guid: 32d4212a903b75b4fa047f8c54fe7378, type: 3}
 --- !u!114 &85419957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 897b09bc31813334f9e1b7a59a2d82f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32d4212a903b75b4fa047f8c54fe7378, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1884,7 +1886,7 @@ GameObject:
   - component: {fileID: 1035534781}
   - component: {fileID: 1035534780}
   m_Layer: 5
-  m_Name: Marker (2)
+  m_Name: Indicator C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1923,7 +1925,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 361254423}
-  width: 37.5
+  border: 25
+  boxSprite: {fileID: 21300000, guid: 897b09bc31813334f9e1b7a59a2d82f2, type: 3}
+  arrowSprite: {fileID: 21300000, guid: 32d4212a903b75b4fa047f8c54fe7378, type: 3}
 --- !u!114 &1035534781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1944,7 +1948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 897b09bc31813334f9e1b7a59a2d82f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32d4212a903b75b4fa047f8c54fe7378, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2589,7 +2593,7 @@ GameObject:
   - component: {fileID: 1386598286}
   - component: {fileID: 1386598285}
   m_Layer: 5
-  m_Name: Marker (1)
+  m_Name: Indicator B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2628,7 +2632,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 141336881}
-  width: 37.5
+  border: 25
+  boxSprite: {fileID: 21300000, guid: 897b09bc31813334f9e1b7a59a2d82f2, type: 3}
+  arrowSprite: {fileID: 21300000, guid: 32d4212a903b75b4fa047f8c54fe7378, type: 3}
 --- !u!114 &1386598286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2649,7 +2655,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 897b09bc31813334f9e1b7a59a2d82f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32d4212a903b75b4fa047f8c54fe7378, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
