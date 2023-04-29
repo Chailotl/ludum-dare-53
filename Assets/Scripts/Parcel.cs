@@ -6,6 +6,8 @@ public class Parcel : MonoBehaviour, IStackable
 {
 	[SerializeField]
 	private Transform heldBy;
+	[SerializeField]
+	private Transform destination;
 
 	private Rigidbody rb;
 	private float seed;
