@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class Marker : MonoBehaviour
+public class Indicator : MonoBehaviour
 {
 	[SerializeField]
 	private Transform target;

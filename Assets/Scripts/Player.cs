@@ -75,7 +75,6 @@ public class Player : MonoBehaviour, IStackable
 
 		carrying.Remove(parcel);
 		parcel.Drop();
-		parcel.Damage();
 	}
 
 	public Vector3 GetStackingPoint()
