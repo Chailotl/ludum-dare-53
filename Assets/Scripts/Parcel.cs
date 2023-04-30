@@ -8,6 +8,8 @@ public class Parcel : MonoBehaviour, IStackable
 	private Transform heldBy;
 	[SerializeField]
 	private Transform destination;
+	[SerializeField]
+	private Vector3 stackingPoint = Vector3.up * 0.5f;
 
 	public bool Damaged { get; private set; }
 
@@ -29,19 +31,19 @@ public class Parcel : MonoBehaviour, IStackable
 			transform.position = heldBy.position + stack.GetStackingPoint();
 
 			// Random shake
-			transform.position += new Vector3(Mathf.PerlinNoise(Time.time / 2f + seed, 0) - 0.5f, 0, Mathf.PerlinNoise(Time.time / 2f + seed, 100) - 0.5f) / 4f;
+			transform.position += new Vector3(Mathf.PerlinNoise(Time.time / 3f + seed, 0) - 0.5f, 0, Mathf.PerlinNoise(Time.time / 3f + seed, 100) - 0.5f) / 6f;
 		}
 	}
 
 	public Vector3 GetStackingPoint()
 	{
-		return Vector3.up * transform.localScale.x;
+		return stackingPoint;
 	}
 
 	public void Pickup(Transform anchor)
 	{
 		heldBy = anchor;
-		gameObject.layer = LayerMask.NameToLayer("Carried");
+		gameObject.layer = LayerMask.NameToLayer("No Collide");
 		rb.isKinematic = true;
 		transform.rotation = Quaternion.identity;
 	}
@@ -49,7 +51,7 @@ public class Parcel : MonoBehaviour, IStackable
 	public void Drop()
 	{
 		heldBy = null;
-		gameObject.layer = LayerMask.NameToLayer("Default");
+		gameObject.layer = LayerMask.NameToLayer("Parcel");
 		rb.isKinematic = false;
 		
 		// Random vel

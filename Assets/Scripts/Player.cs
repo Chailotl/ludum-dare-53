@@ -10,13 +10,18 @@ public class Player : MonoBehaviour, IStackable
 	private float moveSpeed = 5;
 	[SerializeField]
 	private float accel = 25;
+
+	[SerializeField]
+	private Animator animator;
+	[SerializeField]
+	private SpriteRenderer render;
 	[SerializeField]
 	private Vector3 stackingPoint = Vector3.up * 0.5f;
 
 	private List<Parcel> carrying = new List<Parcel>();
 
 	// Input
-	private Vector2 move = Vector2.zero;
+	private Vector2 moving = Vector2.zero;
 
 	// Physics
 	private Rigidbody rb;
@@ -29,11 +34,34 @@ public class Player : MonoBehaviour, IStackable
 
 	void Update()
 	{
-		vel = Vector3.MoveTowards(vel, new Vector3(move.x, 0, move.y), accel * Time.deltaTime);
+		vel = Vector3.MoveTowards(vel, new Vector3(moving.x, 0, moving.y), accel * Time.deltaTime);
 
 		vel.y = rb.velocity.y;
 		rb.velocity = vel;
 		vel.y = 0;
+
+		// Animate character
+		float speed = vel.sqrMagnitude;
+		bool carryingParcels = carrying.Count > 0;
+
+		if (speed > 0.05f && (moving.x != 0 || moving.y != 0))
+		{
+			animator.Play(carryingParcels ? "Bun Carry Walk" : "Bun Walk");
+		}
+		else
+		{
+			animator.Play(carryingParcels ? "Bun Carry Idle" : "Bun Idle");
+		}
+
+		// Sprite flipper
+		if (moving.x > 0)
+		{
+			render.flipX = false;
+		}
+		else if (moving.x < 0)
+		{
+			render.flipX = true;
+		}
 	}
 
 	public void DropParcel()
@@ -53,7 +81,7 @@ public class Player : MonoBehaviour, IStackable
 
 	private void OnMove(InputValue val)
 	{
-		move = val.Get<Vector2>() * moveSpeed;
+		moving = val.Get<Vector2>() * moveSpeed;
 	}
 
 	// Pick up all parcels in range
