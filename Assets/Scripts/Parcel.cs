@@ -9,6 +9,8 @@ public class Parcel : MonoBehaviour, IStackable
 	[SerializeField]
 	private Transform destination;
 
+	public bool Damaged { get; private set; }
+
 	private Rigidbody rb;
 	private float seed;
 
