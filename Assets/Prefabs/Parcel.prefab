@@ -80,6 +80,12 @@ MonoBehaviour:
   destination: {fileID: 0}
   stackingPoint: {x: 0, y: 0.336, z: 0}
   render: {fileID: 2717821396218262328}
+  mats:
+  - {fileID: 2100000, guid: fa13e58e2b9d7594d9ce194e8177003e, type: 2}
+  - {fileID: 2100000, guid: feef06edd2652a04a8b6d5d5fddaf9ff, type: 2}
+  - {fileID: 2100000, guid: 90cf4dd0526ba64439ce3e42c890cf33, type: 2}
+  - {fileID: 2100000, guid: 9a469e519a9bf0f41b23aceb42a9ba5c, type: 2}
+  - {fileID: 2100000, guid: e778243aab2cf664bae306c6445d3212, type: 2}
 --- !u!1001 &8050841764307872554
 PrefabInstance:
   m_ObjectHideFlags: 0

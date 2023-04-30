@@ -12,6 +12,8 @@ public class Parcel : MonoBehaviour, IStackable
 	private Vector3 stackingPoint = Vector3.up * 0.5f;
 	[SerializeField]
 	private SkinnedMeshRenderer render;
+	[SerializeField]
+	private List<Material> mats = new List<Material>();
 
 	public bool Damaged { get; private set; }
 
@@ -22,6 +24,7 @@ public class Parcel : MonoBehaviour, IStackable
 	{
 		rb = GetComponent<Rigidbody>();
 		seed = Random.value * 100f;
+		render.material = mats[Random.Range(0, mats.Count)];
 	}
 
 	void FixedUpdate()
