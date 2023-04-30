@@ -7,8 +7,6 @@ public class Parcel : MonoBehaviour, IStackable
 	[SerializeField]
 	private Transform heldBy;
 	[SerializeField]
-	private Transform destination;
-	[SerializeField]
 	private Vector3 stackingPoint = Vector3.up * 0.5f;
 	[SerializeField]
 	private SkinnedMeshRenderer render;
@@ -19,6 +17,7 @@ public class Parcel : MonoBehaviour, IStackable
 
 	private Rigidbody rb;
 	private float seed;
+	private GameManager.DeliveryRoute route;
 
 	void Start()
 	{
@@ -43,6 +42,16 @@ public class Parcel : MonoBehaviour, IStackable
 	public Vector3 GetStackingPoint()
 	{
 		return stackingPoint;
+	}
+
+	public void SetRoute(GameManager.DeliveryRoute route)
+	{
+		this.route = route;
+	}
+
+	public GameManager.DeliveryRoute GetRoute()
+	{
+		return route;
 	}
 
 	public void Pickup(Transform anchor)

@@ -29,9 +29,10 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		instance = this;
-		foreach (DeliveryRoute deliveryRoute in deliveryRoutes)
+		foreach (DeliveryRoute route in deliveryRoutes)
 		{
-			Instantiate(parcelPrefab, deliveryRoute.parcelSpawnPoint.position, Quaternion.identity);
+			GameObject parcel = Instantiate(parcelPrefab, route.parcelSpawnPoint.position, Quaternion.identity);
+			parcel.GetComponent<Parcel>().SetRoute(route);
 		}
 	}
 
@@ -39,5 +40,20 @@ public class GameManager : MonoBehaviour
 	{
 		instance.score += score;
 		instance.scoreText.text = instance.score.ToString();
+	}
+
+	public static void UpdateIndicators(List<Parcel> parcels)
+	{
+		// Turn off all indicators
+		foreach (DeliveryRoute route in instance.deliveryRoutes)
+		{
+			route.indicator.gameObject.SetActive(false);
+		}
+
+		// Turn on active indicators
+		foreach (Parcel parcel in parcels)
+		{
+			parcel.GetRoute().indicator.gameObject.SetActive(true);
+		}
 	}
 }

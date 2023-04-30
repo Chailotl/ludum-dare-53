@@ -74,6 +74,7 @@ public class Player : MonoBehaviour, IStackable
 		Parcel parcel = carrying[carrying.Count - 1];
 
 		carrying.Remove(parcel);
+		UpdateIndicators();
 		parcel.Drop();
 	}
 
@@ -106,6 +107,7 @@ public class Player : MonoBehaviour, IStackable
 				}
 
 				carrying.Add(parcel);
+				UpdateIndicators();
 			}
 		}
 	}
@@ -114,5 +116,10 @@ public class Player : MonoBehaviour, IStackable
 	private void OnDrop()
 	{
 		DropParcel();
+	}
+
+	private void UpdateIndicators()
+	{
+		GameManager.UpdateIndicators(carrying);
 	}
 }
