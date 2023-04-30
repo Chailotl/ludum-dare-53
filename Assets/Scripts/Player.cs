@@ -36,17 +36,18 @@ public class Player : MonoBehaviour, IStackable
 
 	void Update()
 	{
-		vel = Vector3.MoveTowards(vel, new Vector3(moving.x, 0, moving.y), accel * Time.deltaTime);
+		Vector2 speed = moving * (moveSpeed - carrying.Count * carrySpeedLoss);
+
+		vel = Vector3.MoveTowards(vel, new Vector3(speed.x, 0, speed.y), accel * Time.deltaTime);
 
 		vel.y = rb.velocity.y;
 		rb.velocity = vel;
 		vel.y = 0;
 
 		// Animate character
-		float speed = vel.sqrMagnitude;
 		bool carryingParcels = carrying.Count > 0;
 
-		if (speed > 0.05f && (moving.x != 0 || moving.y != 0))
+		if (vel.sqrMagnitude > 0.05f && (moving.x != 0 || moving.y != 0))
 		{
 			animator.Play(carryingParcels ? "Bun Carry Walk" : "Bun Walk");
 		}
@@ -83,7 +84,7 @@ public class Player : MonoBehaviour, IStackable
 
 	private void OnMove(InputValue val)
 	{
-		moving = val.Get<Vector2>() * (moveSpeed - carrying.Count * carrySpeedLoss);
+		moving = val.Get<Vector2>();
 	}
 
 	// Pick up all parcels in range
