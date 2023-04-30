@@ -9,6 +9,8 @@ public class Player : MonoBehaviour, IStackable
 	[SerializeField]
 	private float moveSpeed = 5;
 	[SerializeField]
+	private float carrySpeedLoss = 0.5f;
+	[SerializeField]
 	private float accel = 25;
 
 	[SerializeField]
@@ -81,7 +83,7 @@ public class Player : MonoBehaviour, IStackable
 
 	private void OnMove(InputValue val)
 	{
-		moving = val.Get<Vector2>() * moveSpeed;
+		moving = val.Get<Vector2>() * (moveSpeed - carrying.Count * carrySpeedLoss);
 	}
 
 	// Pick up all parcels in range
