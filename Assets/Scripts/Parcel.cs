@@ -10,6 +10,8 @@ public class Parcel : MonoBehaviour, IStackable
 	private Transform destination;
 	[SerializeField]
 	private Vector3 stackingPoint = Vector3.up * 0.5f;
+	[SerializeField]
+	private SkinnedMeshRenderer render;
 
 	public bool Damaged { get; private set; }
 
@@ -59,5 +61,26 @@ public class Parcel : MonoBehaviour, IStackable
 		vel.y = Random.Range(2f, 3f);
 
 		rb.velocity = vel;
+	}
+
+	public void Damage()
+	{
+		if (Damaged)
+		{
+			Destroy(gameObject);
+			return;
+		}
+
+		Damaged = true;
+		render.SetBlendShapeWeight(0, 100);
+	}
+
+	public int GetPoints()
+	{
+		int points = 10;
+
+		if (Damaged) { points /= 2; }
+
+		return points;
 	}
 }

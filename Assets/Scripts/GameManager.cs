@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 	[SerializeField]
 	private TextMeshProUGUI scoreText;
 
 	private int score = 0;
-	private static ScoreManager instance;
+	private static GameManager instance;
 
 	void Start()
 	{

@@ -9,7 +9,7 @@ public class ParcelDropoff : MonoBehaviour
 		Parcel parcel;
 		if (parcel = other.GetComponent<Parcel>())
 		{
-			ScoreManager.AddScore(parcel.Damaged ? 5 : 10);
+			GameManager.AddScore(parcel.GetPoints());
 			Destroy(parcel.gameObject);
 		}
 	}
