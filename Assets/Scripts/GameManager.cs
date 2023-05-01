@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 		public Indicator indicator;
 		public GameObject destination;
 		public Transform parcelSpawnPoint;
+		public int points;
 	}
 
 	void Start()
@@ -40,6 +41,11 @@ public class GameManager : MonoBehaviour
 	{
 		instance.score += score;
 		instance.scoreText.text = instance.score.ToString();
+	}
+
+	public static void DeliverParcel(Parcel parcel)
+	{
+
 	}
 
 	public static void UpdateIndicators(List<Parcel> parcels)

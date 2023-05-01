@@ -251,12 +251,15 @@ MonoBehaviour:
   - indicator: {fileID: 498266208}
     destination: {fileID: 1371376663}
     parcelSpawnPoint: {fileID: 679684084}
+    points: 10
   - indicator: {fileID: 1414746638}
     destination: {fileID: 141336878}
     parcelSpawnPoint: {fileID: 1968446260}
+    points: 30
   - indicator: {fileID: 1761132256}
     destination: {fileID: 361254420}
     parcelSpawnPoint: {fileID: 965364846}
+    points: 20
 --- !u!1 &101878319
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +271,7 @@ GameObject:
   - component: {fileID: 101878320}
   - component: {fileID: 101878322}
   - component: {fileID: 101878321}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +445,7 @@ GameObject:
   - component: {fileID: 141336879}
   - component: {fileID: 141336883}
   - component: {fileID: 141336882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Home B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,8 +541,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.1}
-  m_Center: {x: 0, y: 0, z: -0.05}
+  m_Size: {x: 1, y: 1.0000002, z: 5}
+  m_Center: {x: 0, y: 0, z: -2.5}
 --- !u!1 &210819783
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +651,7 @@ GameObject:
   - component: {fileID: 213488180}
   - component: {fileID: 213488182}
   - component: {fileID: 213488181}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -950,7 +953,7 @@ GameObject:
   - component: {fileID: 361254421}
   - component: {fileID: 361254425}
   - component: {fileID: 361254424}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Home C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,8 +1049,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.1}
-  m_Center: {x: 0, y: 0, z: -0.05}
+  m_Size: {x: 1, y: 1.0000002, z: 5}
+  m_Center: {x: 0, y: 0, z: -2.5}
 --- !u!1001 &388998616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2284,7 +2287,7 @@ GameObject:
   - component: {fileID: 1144204623}
   - component: {fileID: 1144204625}
   - component: {fileID: 1144204624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2857,7 +2860,7 @@ GameObject:
   - component: {fileID: 1371376664}
   - component: {fileID: 1371376668}
   - component: {fileID: 1371376667}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Home A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2953,8 +2956,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.1}
-  m_Center: {x: 0, y: 0, z: -0.05}
+  m_Size: {x: 1, y: 1.0000002, z: 5}
+  m_Center: {x: 0, y: 0, z: -2.5}
 --- !u!114 &1414746638 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7040370530883616576, guid: 60c251659fda94441b97a13e83fbcb7e, type: 3}

@@ -89,7 +89,7 @@ public class Parcel : MonoBehaviour, IStackable
 
 	public int GetPoints()
 	{
-		int points = 10;
+		int points = route.points;
 
 		if (Damaged) { points /= 2; }
 
