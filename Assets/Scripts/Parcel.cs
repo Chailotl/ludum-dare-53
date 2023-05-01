@@ -77,6 +77,14 @@ public class Parcel : MonoBehaviour, IStackable
 	{
 		if (delivered) { this.delivered = true; }
 
+		// Clear anchor's aboveStack
+		Parcel parcel = anchor.GetComponent<Parcel>();
+
+		if (parcel)
+		{
+			parcel.aboveStack = null;
+		}
+
 		// Check if there is a parcel above and shift it down
 		if (aboveStack != null)
 		{
