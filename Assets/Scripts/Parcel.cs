@@ -50,7 +50,7 @@ public class Parcel : MonoBehaviour, IStackable
 		if (anchor != null && (stack = anchor.GetComponent<IStackable>()) != null)
 		{
 			// Anchor point
-			transform.position = anchor.position + stack.GetStackingPoint();
+			Vector3 pos = anchor.position + stack.GetStackingPoint();
 
 			Quaternion q = holder.GetStackingRotation();
 			if (q != Quaternion.identity)
@@ -61,8 +61,11 @@ public class Parcel : MonoBehaviour, IStackable
 			// Random shake
 			if (stack != holder)
 			{
-				transform.position += new Vector3(Mathf.PerlinNoise(Time.time / 3f + seed, 0) - 0.5f, 0, Mathf.PerlinNoise(Time.time / 3f + seed, 100) - 0.5f) / 6f;
+				pos += new Vector3(Mathf.PerlinNoise(Time.time / 3f + seed, 0) - 0.5f, 0, Mathf.PerlinNoise(Time.time / 3f + seed, 100) - 0.5f) / 6f;
 			}
+
+
+			rb.MovePosition(pos);
 		}
 	}
 

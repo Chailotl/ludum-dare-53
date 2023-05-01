@@ -41,7 +41,7 @@ public class Player : MonoBehaviour, IStackable
 		rb = GetComponent<Rigidbody>();
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
 		Vector2 speed = moving * (moveSpeed - carrying.Count * carrySpeedLoss);
 		if (attackTimer > 0 || hurtTimer > 0) { speed *= 0.25f; }
@@ -93,7 +93,7 @@ public class Player : MonoBehaviour, IStackable
 
 		// Stick to ground
 		RaycastHit hit;
-		if (Physics.Raycast(new Ray(transform.position, Vector3.down ), out hit, 0.5f, 1, QueryTriggerInteraction.Ignore))
+		if (Physics.Raycast(new Ray(transform.position, Vector3.down ), out hit, 0.51f, 1, QueryTriggerInteraction.Ignore))
 		{
 			transform.position = hit.point + Vector3.up * 0.5f;
 
