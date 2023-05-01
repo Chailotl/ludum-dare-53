@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 	public static void UpdateIndicators(List<Parcel> parcels)
 	{
 		// Turn off all indicators
-		/*foreach (DeliveryRoute route in instance.deliveryRoutes)
+		foreach (DeliveryRoute route in instance.deliveryRoutes)
 		{
 			route.indicator.gameObject.SetActive(false);
 		}
@@ -60,6 +60,6 @@ public class GameManager : MonoBehaviour
 		foreach (Parcel parcel in parcels)
 		{
 			parcel.GetRoute().indicator.gameObject.SetActive(true);
-		}*/
+		}
 	}
 }
