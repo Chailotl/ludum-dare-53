@@ -57,9 +57,9 @@ public class Parcel : MonoBehaviour, IStackable
 	public void Pickup(Transform anchor)
 	{
 		heldBy = anchor;
-		gameObject.layer = LayerMask.NameToLayer("No Collide");
+		gameObject.layer = LayerMask.NameToLayer("Carried Parcel");
 		rb.isKinematic = true;
-		transform.rotation = Quaternion.identity;
+		transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 	}
 
 	public void Drop()
