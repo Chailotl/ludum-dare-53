@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 	private static GameManager instance;
 	private AudioSource audio;
 
+	public static int parcelsStolen = 0;
+
 	[Serializable]
 	public class DeliveryRoute
 	{
@@ -39,6 +41,14 @@ public class GameManager : MonoBehaviour
 		{
 			GameObject parcel = Instantiate(parcelPrefab, route.parcelSpawnPoint.position, Quaternion.identity);
 			parcel.GetComponent<Parcel>().SetRoute(route);
+		}
+	}
+
+	void Update()
+	{
+		if (parcelsStolen == 4)
+		{
+			
 		}
 	}
 

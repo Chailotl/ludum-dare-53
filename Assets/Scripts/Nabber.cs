@@ -94,6 +94,7 @@ public class Nabber : MonoBehaviour, IStackable
 				{
 					Destroy(heldParcel.gameObject);
 					heldParcel = null;
+					++GameManager.parcelsStolen;
 				}
 			}
 
