@@ -93,9 +93,13 @@ public class Player : MonoBehaviour, IStackable
 
 		// Stick to ground
 		RaycastHit hit;
-		if (Physics.Raycast(new Ray(transform.position, Vector3.down), out hit, 2f, 1))
+		if (Physics.Raycast(new Ray(transform.position, Vector3.down ), out hit, 0.5f, 1))
 		{
 			transform.position = hit.point + Vector3.up * 0.5f;
+
+			Vector3 v = rb.velocity;
+			v.y = 0;
+			rb.velocity = v;
 		}
 	}
 

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320f82a9004fce84a98e0cc1687f0fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackingPoint: {x: 0.26, y: -0.09400001, z: 0.24100006}
+  stackingPoint: {x: 0.26, y: -0.09400001, z: 0.28}
   stackingRotation: {x: -0.37151977, y: 0.22152439, z: -0.09175854, w: 0.89692837}
   damagePrefab: {fileID: 1601353241817031395, guid: 1cc56f87a2217ea4fbf1e1387120385e, type: 3}
 --- !u!1 &5124182604979609711
