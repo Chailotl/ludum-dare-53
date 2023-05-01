@@ -22,6 +22,10 @@ public class Nabber : MonoBehaviour, IStackable
 	private Animator animator;
 	[SerializeField]
 	private SpriteRenderer render;
+	[SerializeField]
+	private AudioSource hurtAudio;
+	[SerializeField]
+	private AudioSource stealAudio;
 
 	private NavMeshAgent agent;
 	private Transform target;
@@ -57,6 +61,8 @@ public class Nabber : MonoBehaviour, IStackable
 				{
 					parcels[0].Pickup(this, transform);
 					heldParcel = parcels[0];
+					
+					stealAudio.Play();
 				}
 			}
 
@@ -156,5 +162,7 @@ public class Nabber : MonoBehaviour, IStackable
 			heldParcel.Drop();
 			heldParcel = null;
 		}
+
+		hurtAudio.Play();
 	}
 }
