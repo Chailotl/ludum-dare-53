@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 			GameObject parcel = Instantiate(parcelPrefab, route.parcelSpawnPoint.position, Quaternion.identity);
 			parcel.GetComponent<Parcel>().SetRoute(route);
 		}
+		SpawnNabber();
 	}
 
 	void Update()
@@ -79,11 +80,16 @@ public class GameManager : MonoBehaviour
 		// Spawn another nabber
 		if (instance.deliveries % instance.spawnNabbersEveryN == 0)
 		{
-			GameObject[] burrows = GameObject.FindGameObjectsWithTag("Burrow");
-			int i = UnityEngine.Random.Range(0, burrows.Length);
-
-			GameObject nabber = Instantiate(instance.nabberPrefab, burrows[i].transform.position, Quaternion.identity);
+			instance.SpawnNabber();
 		}
+	}
+
+	private void SpawnNabber()
+	{
+		GameObject[] burrows = GameObject.FindGameObjectsWithTag("Burrow");
+		int i = UnityEngine.Random.Range(0, burrows.Length);
+
+		GameObject nabber = Instantiate(nabberPrefab, burrows[i].transform.position, Quaternion.identity);
 	}
 
 	public static void UpdateIndicators(List<Parcel> parcels)
