@@ -22253,7 +22253,7 @@ GameObject:
   - component: {fileID: 1027911663}
   - component: {fileID: 1027911662}
   - component: {fileID: 1027911661}
-  - component: {fileID: 1027911660}
+  - component: {fileID: 1027911666}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -22261,20 +22261,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1027911660
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1027911659}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1296953781}
 --- !u!33 &1027911661
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -22590,9 +22576,17 @@ MonoBehaviour:
   m_Mesh: {fileID: 1296953781}
   m_VersionIndex: 2400
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 02000000
+  m_SelectedEdges:
+  - a: 8
+    b: 9
+  - a: 10
+    b: 8
+  - a: 9
+    b: 11
+  - a: 11
+    b: 10
+  m_SelectedVertices: 08000000090000000a0000000b000000
 --- !u!4 &1027911665
 Transform:
   m_ObjectHideFlags: 0
@@ -22608,6 +22602,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1027911666
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027911659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 108, y: 19.065617, z: 5}
+  m_Center: {x: 0, y: 2.0328083, z: 0}
 --- !u!1001 &1032320929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24791,7 +24798,7 @@ GameObject:
   - component: {fileID: 2031987974}
   - component: {fileID: 2031987973}
   - component: {fileID: 2031987972}
-  - component: {fileID: 2031987971}
+  - component: {fileID: 2031987977}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -24799,20 +24806,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &2031987971
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031987970}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 220251975}
 --- !u!33 &2031987972
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -28206,6 +28199,19 @@ Transform:
   m_Father: {fileID: 10418763}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2031987977
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031987970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.088619, y: 21.2, z: 113.40265}
+  m_Center: {x: -0.044309616, y: 5.6000004, z: -1.7013245}
 --- !u!1 &2102704505
 GameObject:
   m_ObjectHideFlags: 0
@@ -28219,7 +28225,7 @@ GameObject:
   - component: {fileID: 2102704510}
   - component: {fileID: 2102704509}
   - component: {fileID: 2102704508}
-  - component: {fileID: 2102704507}
+  - component: {fileID: 2102704512}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -28242,20 +28248,6 @@ Transform:
   m_Father: {fileID: 10418763}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &2102704507
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102704505}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 595515734}
 --- !u!33 &2102704508
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -31634,3 +31626,16 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!65 &2102704512
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102704505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.088619, y: 24.833355, z: 109.1}
+  m_Center: {x: -0.044309616, y: 3.7833238, z: 0.45000076}
