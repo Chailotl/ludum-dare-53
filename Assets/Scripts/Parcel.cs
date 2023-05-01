@@ -49,13 +49,20 @@ public class Parcel : MonoBehaviour, IStackable
 		IStackable stack;
 		if (anchor != null && (stack = anchor.GetComponent<IStackable>()) != null)
 		{
-			//if (stack == holder) { return; }
-
 			// Anchor point
 			transform.position = anchor.position + stack.GetStackingPoint();
 
+			Quaternion q = holder.GetStackingRotation();
+			if (q != Quaternion.identity)
+			{
+				transform.rotation = q;
+			}
+
 			// Random shake
-			transform.position += new Vector3(Mathf.PerlinNoise(Time.time / 3f + seed, 0) - 0.5f, 0, Mathf.PerlinNoise(Time.time / 3f + seed, 100) - 0.5f) / 6f;
+			if (stack != holder)
+			{
+				transform.position += new Vector3(Mathf.PerlinNoise(Time.time / 3f + seed, 0) - 0.5f, 0, Mathf.PerlinNoise(Time.time / 3f + seed, 100) - 0.5f) / 6f;
+			}
 		}
 	}
 
@@ -90,16 +97,7 @@ public class Parcel : MonoBehaviour, IStackable
 
 
 		// Apply rotation
-		Quaternion q = holder.GetStackingRotation();
-
-		if (q == Quaternion.identity)
-		{
-			transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-		}
-		else
-		{
-			transform.rotation = q;
-		}
+		transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 	}
 
 	public void Drop()
