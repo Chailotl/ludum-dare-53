@@ -93,7 +93,7 @@ public class Player : MonoBehaviour, IStackable
 
 		// Stick to ground
 		RaycastHit hit;
-		if (Physics.Raycast(new Ray(transform.position, Vector3.down ), out hit, 0.5f, 1))
+		if (Physics.Raycast(new Ray(transform.position, Vector3.down ), out hit, 0.5f, 1, QueryTriggerInteraction.Ignore))
 		{
 			transform.position = hit.point + Vector3.up * 0.5f;
 
