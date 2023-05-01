@@ -8,6 +8,8 @@ public class Nabber : MonoBehaviour, IStackable
 {
 	[SerializeField]
 	private Vector3 stackingPoint = Vector3.up * 0.5f;
+	[SerializeField]
+	private GameObject damagePrefab;
 
 	private NavMeshAgent agent;
 
@@ -22,7 +24,11 @@ public class Nabber : MonoBehaviour, IStackable
 
 	void Update()
 	{
-		if (thinkTimer > 0)
+		if (hurtTimer > 0)
+		{
+			hurtTimer -= Time.deltaTime;
+		}
+		else if (thinkTimer > 0)
 		{
 			thinkTimer -= Time.deltaTime;
 		}
@@ -31,13 +37,17 @@ public class Nabber : MonoBehaviour, IStackable
 			thinkTimer = 0.5f;
 
 			// Check for parcels to grab
-			List<Parcel> parcels = GetComponentInChildren<ParcelPickup>().parcels;
-			if (parcels.Count > 0)
+			if (heldParcel == null)
 			{
-				parcels[0].Pickup(this, transform);
-				heldParcel = parcels[0];
+				List<Parcel> parcels = GetComponentInChildren<ParcelPickup>().parcels;
+				if (parcels.Count > 0)
+				{
+					parcels[0].Pickup(this, transform);
+					heldParcel = parcels[0];
+				}
 			}
 
+			// Pathfind
 			GameObject[] targets = GameObject.FindGameObjectsWithTag(heldParcel ? "Burrow" : "Parcel");
 
 			GameObject closestTarget = null;
@@ -50,6 +60,21 @@ public class Nabber : MonoBehaviour, IStackable
 				{
 					closestDist = dist;
 					closestTarget = target;
+				}
+			}
+
+			// Attack if nearby
+			if (closestDist < 1f)
+			{
+				if (heldParcel == null)
+				{
+					Damage damage = Instantiate(damagePrefab, transform.position, Quaternion.identity).GetComponent<Damage>();
+					damage.damageType = Damage.DamageType.Player;
+				}
+				else
+				{
+					Destroy(heldParcel.gameObject);
+					heldParcel = null;
 				}
 			}
 
@@ -69,7 +94,9 @@ public class Nabber : MonoBehaviour, IStackable
 
 	public void Hurt()
 	{
-		hurtTimer = 0.5f;
+		hurtTimer = 1.5f;
+		agent.destination = transform.position;
+
 		if (heldParcel)
 		{
 			heldParcel.Drop();

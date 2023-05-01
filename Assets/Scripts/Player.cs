@@ -106,7 +106,11 @@ public class Player : MonoBehaviour, IStackable
 	public void Hurt()
 	{
 		hurtTimer = 0.5f;
-		DropParcel();
+		int count = carrying.Count;
+		for (int i = 0; i < count; ++i)
+		{
+			DropParcel();
+		}
 	}
 
 	public Vector3 GetStackingPoint()

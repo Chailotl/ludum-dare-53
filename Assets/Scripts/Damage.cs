@@ -30,11 +30,8 @@ public class Damage : MonoBehaviour
 		{
 			Nabber enemy = other.GetComponent<Nabber>();
 
-			Debug.Log(other);
-			Debug.Log(enemy);
 			if (enemy != null)
 			{
-				Debug.Log("b");
 				enemy.Hurt();
 			}
 

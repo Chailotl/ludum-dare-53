@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stackingPoint: {x: 0, y: 0.5, z: 0}
+  damagePrefab: {fileID: 1601353241817031395, guid: 1cc56f87a2217ea4fbf1e1387120385e, type: 3}
 --- !u!1 &5124182604979609711
 GameObject:
   m_ObjectHideFlags: 0
