@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "0b175832-52d0-4df3-9150-d61aa9eacb43",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Pickup",
                     "type": "Button",
                     "id": "4d2058a5-861a-404a-b041-596e90d002cb",
@@ -31,15 +40,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Attack",
-                    "type": "Value",
-                    "id": "0b175832-52d0-4df3-9150-d61aa9eacb43",
-                    "expectedControlType": "Dpad",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -101,7 +101,7 @@
                 {
                     "name": "",
                     "id": "e91b1b70-7325-40d3-af11-c8cb51a3c25d",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -112,7 +112,7 @@
                 {
                     "name": "",
                     "id": "8a799631-d4cc-4422-8114-f1a0ad7f5ab4",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -121,59 +121,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "7e01038e-2a8e-46d5-886e-0465e1b3d133",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "bfe71757-7ced-497e-84f2-afa4a7ff59d1",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "eda9e81f-198a-46e9-aff1-f13d33d22f91",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "677d5935-76f9-4acd-b8a5-f05ddc01fdfe",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "e3c9f0c9-c543-4d66-8d8d-216cd5a7d4ad",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "613cde81-cbd7-4c5d-baf6-ec2668f777e3",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }
