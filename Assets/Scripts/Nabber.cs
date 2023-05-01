@@ -172,6 +172,7 @@ public class Nabber : MonoBehaviour, IStackable
 
 		if (heldParcel)
 		{
+			heldParcel.Damage();
 			heldParcel.Drop();
 			heldParcel = null;
 		}

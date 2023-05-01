@@ -147,11 +147,11 @@ public class Parcel : MonoBehaviour, IStackable
 
 	public void Damage()
 	{
-		if (Damaged)
+		/*if (Damaged)
 		{
 			Destroy(gameObject);
 			return;
-		}
+		}*/
 
 		Damaged = true;
 		render.SetBlendShapeWeight(0, 100);
