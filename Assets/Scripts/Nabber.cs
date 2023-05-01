@@ -14,6 +14,7 @@ public class Nabber : MonoBehaviour, IStackable
 	private GameObject damagePrefab;
 
 	private NavMeshAgent agent;
+	private Transform target;
 
 	private float thinkTimer = 0;
 	private float hurtTimer = 0;
@@ -52,7 +53,7 @@ public class Nabber : MonoBehaviour, IStackable
 			// Pathfind
 			GameObject[] targets = GameObject.FindGameObjectsWithTag(heldParcel ? "Burrow" : "Parcel");
 
-			GameObject closestTarget = null;
+			Transform closestTarget = null;
 			float closestDist = float.PositiveInfinity;
 
 			foreach (GameObject target in targets)
@@ -61,7 +62,7 @@ public class Nabber : MonoBehaviour, IStackable
 				if (dist < closestDist)
 				{
 					closestDist = dist;
-					closestTarget = target;
+					closestTarget = target.transform;
 				}
 			}
 
@@ -80,10 +81,14 @@ public class Nabber : MonoBehaviour, IStackable
 				}
 			}
 
-			if (closestTarget != null)
-			{
-				agent.destination = closestTarget.transform.position;
-			}
+			target = closestTarget;
+		}
+
+
+
+		if (target != null)
+		{
+			agent.destination = target.position;
 		}
 	}
 
