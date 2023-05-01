@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 8a82ab528730d8c44bfa979038594d32, type: 2}
 --- !u!1 &10418762
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +346,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &104104418
 Transform:
@@ -12800,9 +12800,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 85179130969613437, guid: b7c32bef6058e8e4f895e9066b430482, type: 3}
+      propertyPath: m_Size.y
+      value: 2.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4616169290788889804, guid: b7c32bef6058e8e4f895e9066b430482, type: 3}
       propertyPath: m_Name
-      value: Post Office (1)
+      value: Post Office
       objectReference: {fileID: 0}
     - target: {fileID: 5423527126189588086, guid: b7c32bef6058e8e4f895e9066b430482, type: 3}
       propertyPath: m_RootOrder

@@ -426,12 +426,13 @@ GameObject:
   - component: {fileID: 2532387186007696485}
   - component: {fileID: 2169557542999885929}
   - component: {fileID: 3139918255260579942}
+  - component: {fileID: 85179130969613437}
   m_Layer: 0
   m_Name: PostOffice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2532387186007696485
 Transform:
@@ -498,6 +499,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &85179130969613437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535893934140360089}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7403395, y: 2.46, z: 3.5917323}
+  m_Center: {x: 0, y: 0, z: 0.79161984}
 --- !u!1 &4616169290788889804
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,12 +564,13 @@ GameObject:
   - component: {fileID: 9166403855414764819}
   - component: {fileID: 488862854470554509}
   - component: {fileID: 8344826816737152850}
+  - component: {fileID: 8796254537074075502}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &9166403855414764819
 Transform:
@@ -622,6 +637,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8796254537074075502
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134921469331434489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9115307, y: 2.5, z: 1.3966886}
+  m_Center: {x: 0, y: 0, z: -0.3016556}
 --- !u!1 &5772753769744659948
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +833,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1636742280713578778
 Transform:
