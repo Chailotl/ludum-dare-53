@@ -13,6 +13,16 @@ public class Nabber : MonoBehaviour, IStackable
 	[SerializeField]
 	private GameObject damagePrefab;
 
+	[SerializeField]
+	private float walkSpeed = 6f;
+	[SerializeField]
+	private float carrySpeed = 4f;
+
+	[SerializeField]
+	private Animator animator;
+	[SerializeField]
+	private SpriteRenderer render;
+
 	private NavMeshAgent agent;
 	private Transform target;
 
@@ -84,17 +94,46 @@ public class Nabber : MonoBehaviour, IStackable
 			target = closestTarget;
 		}
 
-
-
 		if (target != null)
 		{
 			agent.destination = target.position;
+		}
+
+		// Animator
+		animator.speed = agent.velocity.magnitude / 5f;
+
+		if (hurtTimer > 0)
+		{
+			animator.Play("Nabber Hurt");
+			agent.speed = 0;
+		}
+		else if (heldParcel)
+		{
+			animator.Play("Nabber Carry Walk");
+			agent.speed = carrySpeed;
+		}
+		else
+		{
+			animator.Play("Nabber Walk");
+			agent.speed = walkSpeed;
+		}
+
+		// Sprite flipper
+		if (agent.velocity.x > 0)
+		{
+			render.flipX = false;
+		}
+		else if (agent.velocity.x < 0)
+		{
+			render.flipX = true;
 		}
 	}
 
 	public Vector3 GetStackingPoint()
 	{
-		return stackingPoint;
+		Vector3 pos = stackingPoint;
+		if (!render.flipX) { pos.x *= -1; }
+		return pos;
 	}
 
 	public Quaternion GetStackingRotation()
