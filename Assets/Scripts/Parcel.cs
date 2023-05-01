@@ -16,6 +16,7 @@ public class Parcel : MonoBehaviour, IStackable
 	private Rigidbody rb;
 	private float seed;
 	private GameManager.DeliveryRoute route;
+	public bool delivered = false;
 
 	private IStackable holder;
 	private Transform anchor;
@@ -72,8 +73,10 @@ public class Parcel : MonoBehaviour, IStackable
 		transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 	}
 
-	public void Drop()
+	public void Drop(bool delivered = false)
 	{
+		if (delivered) { this.delivered = true; }
+
 		// Check if there is a parcel above and shift it down
 		if (aboveStack != null)
 		{

@@ -91,5 +91,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   border: 100
-  boxSprite: {fileID: 21300000, guid: 897b09bc31813334f9e1b7a59a2d82f2, type: 3}
+  boxSprite: {fileID: 21300000, guid: 0126b856297548c41ac06d581491f4bb, type: 3}
   arrowSprite: {fileID: 21300000, guid: 32d4212a903b75b4fa047f8c54fe7378, type: 3}

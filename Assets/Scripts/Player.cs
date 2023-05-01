@@ -88,6 +88,7 @@ public class Player : MonoBehaviour, IStackable
 		if (item is Parcel)
 		{
 			carrying.Remove(item as Parcel);
+			UpdateIndicators();
 		}
 	}
 
@@ -103,7 +104,7 @@ public class Player : MonoBehaviour, IStackable
 
 		foreach (Parcel parcel in parcels)
 		{
-			if (!carrying.Contains(parcel))
+			if (!carrying.Contains(parcel) && !parcel.delivered)
 			{
 				if (carrying.Count == 0)
 				{
