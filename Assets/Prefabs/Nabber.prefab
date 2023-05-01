@@ -106,7 +106,7 @@ MonoBehaviour:
   stackingPoint: {x: 0.18, y: 0.099, z: 0.415}
   stackingRotation: {x: -0.35090685, y: 0.3686005, z: -0.15267935, w: 0.84716415}
   damagePrefab: {fileID: 1601353241817031395, guid: 1cc56f87a2217ea4fbf1e1387120385e, type: 3}
-  walkSpeed: 6
+  walkSpeed: 8
   carrySpeed: 4
   animator: {fileID: 4232783893209044897}
   render: {fileID: 367748991531561057}

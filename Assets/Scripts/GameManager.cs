@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private GameObject parcelPrefab;
+	[SerializeField]
+	private GameObject nabberPrefab;
 
 	[SerializeField]
 	private Player player;
@@ -68,6 +70,12 @@ public class GameManager : MonoBehaviour
 
 		GameObject go = Instantiate(instance.parcelPrefab, route.parcelSpawnPoint.position, Quaternion.identity);
 		go.GetComponent<Parcel>().SetRoute(route);
+
+		// Spawn another nabber
+		GameObject[] burrows = GameObject.FindGameObjectsWithTag("Burrow");
+		int i = UnityEngine.Random.Range(0, burrows.Length);
+
+		GameObject nabber = Instantiate(instance.nabberPrefab, burrows[i].transform.position, Quaternion.identity);
 	}
 
 	public static void UpdateIndicators(List<Parcel> parcels)
