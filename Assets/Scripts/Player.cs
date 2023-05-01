@@ -44,7 +44,7 @@ public class Player : MonoBehaviour, IStackable
 	void Update()
 	{
 		Vector2 speed = moving * (moveSpeed - carrying.Count * carrySpeedLoss);
-		if (attackTimer > 0) { speed *= 0.25f; }
+		if (attackTimer > 0 || hurtTimer > 0) { speed *= 0.25f; }
 
 		vel = Vector3.MoveTowards(vel, new Vector3(speed.x, 0, speed.y), accel * Time.deltaTime);
 
