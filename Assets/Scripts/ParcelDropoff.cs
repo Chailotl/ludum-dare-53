@@ -7,7 +7,7 @@ public class ParcelDropoff : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		Parcel parcel = other.GetComponent<Parcel>();
-		if (parcel != null && parcel.GetRoute().destination == gameObject)
+		if (parcel != null && parcel.GetRoute().destination == gameObject && parcel.delivered == false)
 		{
 			GameManager.AddScore(parcel.GetPoints());
 			GameManager.DeliverParcel(parcel);
