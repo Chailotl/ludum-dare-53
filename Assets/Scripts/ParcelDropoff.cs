@@ -9,7 +9,7 @@ public class ParcelDropoff : MonoBehaviour
 		Parcel parcel = other.GetComponent<Parcel>();
 		if (parcel != null && parcel.GetRoute().destination == gameObject && parcel.delivered == false)
 		{
-			GameManager.AddScore(parcel.GetPoints());
+			//GameManager.AddScore(parcel.GetPoints());
 			GameManager.DeliverParcel(parcel);
 			parcel.Drop();
 			parcel.delivered = true;

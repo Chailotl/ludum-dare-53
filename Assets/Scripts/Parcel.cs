@@ -92,6 +92,7 @@ public class Parcel : MonoBehaviour, IStackable
 			parcel.aboveStack = this;
 		}
 
+		gameObject.tag = "Parcel";
 		gameObject.layer = LayerMask.NameToLayer("Carried Parcel");
 		rb.isKinematic = true;
 

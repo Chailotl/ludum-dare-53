@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stackingPoint: {x: 0.18, y: 0.099, z: 0.415}
-  stackingRotation: {x: -0.36565715, y: 0.27251107, z: -0.112877734, w: 0.88277465}
+  stackingRotation: {x: -0.35090685, y: 0.3686005, z: -0.15267935, w: 0.84716415}
   damagePrefab: {fileID: 1601353241817031395, guid: 1cc56f87a2217ea4fbf1e1387120385e, type: 3}
   walkSpeed: 6
   carrySpeed: 4
@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parcels: []
+  ignoreUntagged: 1
 --- !u!1 &8463681065573801959
 GameObject:
   m_ObjectHideFlags: 0

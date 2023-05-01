@@ -5,13 +5,18 @@ using UnityEngine;
 public class ParcelPickup : MonoBehaviour
 {
 	public List<Parcel> parcels = new List<Parcel>();
+	[SerializeField]
+	private bool ignoreUntagged = false;
 
 	private void OnTriggerEnter(Collider other)
 	{
 		Parcel parcel = other.GetComponent<Parcel>();
 		if (parcel && !parcel.delivered)
 		{
-			parcels.Add(parcel);
+			if (!ignoreUntagged || (ignoreUntagged && parcel.tag == "Parcel"))
+			{
+				parcels.Add(parcel);
+			}
 		}
 	}
 

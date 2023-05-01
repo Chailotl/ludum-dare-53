@@ -48,7 +48,13 @@ public class GameManager : MonoBehaviour
 
 	public static void DeliverParcel(Parcel parcel)
 	{
+		AddScore(parcel.GetPoints());
 
+		// Respawn parcel
+		DeliveryRoute route = parcel.GetRoute();
+
+		GameObject go = Instantiate(instance.parcelPrefab, route.parcelSpawnPoint.position, Quaternion.identity);
+		go.GetComponent<Parcel>().SetRoute(route);
 	}
 
 	public static void UpdateIndicators(List<Parcel> parcels)

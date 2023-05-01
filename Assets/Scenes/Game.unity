@@ -12098,22 +12098,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3804060712884782816, guid: b74be31435f28bc499e5ced955404bae, type: 3}
-      propertyPath: stackingRotation.w
-      value: 0.84716415
-      objectReference: {fileID: 0}
-    - target: {fileID: 3804060712884782816, guid: b74be31435f28bc499e5ced955404bae, type: 3}
-      propertyPath: stackingRotation.x
-      value: -0.35090685
-      objectReference: {fileID: 0}
-    - target: {fileID: 3804060712884782816, guid: b74be31435f28bc499e5ced955404bae, type: 3}
-      propertyPath: stackingRotation.y
-      value: 0.3686005
-      objectReference: {fileID: 0}
-    - target: {fileID: 3804060712884782816, guid: b74be31435f28bc499e5ced955404bae, type: 3}
-      propertyPath: stackingRotation.z
-      value: -0.15267935
-      objectReference: {fileID: 0}
     - target: {fileID: 3804060712884782817, guid: b74be31435f28bc499e5ced955404bae, type: 3}
       propertyPath: m_RootOrder
       value: 14
