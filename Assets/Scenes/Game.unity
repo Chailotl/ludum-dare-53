@@ -223,8 +223,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'final score: 100'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e69f5286c7d7ea4a9c9115487581212, type: 2}
+  m_sharedMaterial: {fileID: -2457998932255049516, guid: 2e69f5286c7d7ea4a9c9115487581212, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20640,7 +20640,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-60472
+  m_Name: pb_Mesh115268
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20804,7 +20804,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-214706
+  m_Name: pb_Mesh115560
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21688,7 +21688,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-228328
+  m_Name: pb_Mesh115574
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21886,8 +21886,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 0819f1dd28150884088b3d3e90423a10, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e69f5286c7d7ea4a9c9115487581212, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 102f4bff37f425f448240a3bf37d7709, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23129,8 +23129,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e69f5286c7d7ea4a9c9115487581212, type: 2}
+  m_sharedMaterial: {fileID: -2457998932255049516, guid: 2e69f5286c7d7ea4a9c9115487581212, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23365,7 +23365,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-239230
+  m_Name: pb_Mesh115384
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
