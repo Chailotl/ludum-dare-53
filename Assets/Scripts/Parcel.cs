@@ -5,8 +5,6 @@ using UnityEngine;
 public class Parcel : MonoBehaviour, IStackable
 {
 	[SerializeField]
-	private Transform heldBy;
-	[SerializeField]
 	private Vector3 stackingPoint = Vector3.up * 0.5f;
 	[SerializeField]
 	private SkinnedMeshRenderer render;
@@ -19,6 +17,10 @@ public class Parcel : MonoBehaviour, IStackable
 	private float seed;
 	private GameManager.DeliveryRoute route;
 
+	private IStackable holder;
+	private Transform anchor;
+	public Parcel aboveStack;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -29,10 +31,10 @@ public class Parcel : MonoBehaviour, IStackable
 	void FixedUpdate()
 	{
 		IStackable stack;
-		if (heldBy != null && (stack = heldBy.GetComponent<IStackable>()) != null)
+		if (anchor != null && (stack = anchor.GetComponent<IStackable>()) != null)
 		{
 			// Anchor point
-			transform.position = heldBy.position + stack.GetStackingPoint();
+			transform.position = anchor.position + stack.GetStackingPoint();
 
 			// Random shake
 			transform.position += new Vector3(Mathf.PerlinNoise(Time.time / 3f + seed, 0) - 0.5f, 0, Mathf.PerlinNoise(Time.time / 3f + seed, 100) - 0.5f) / 6f;
@@ -54,9 +56,17 @@ public class Parcel : MonoBehaviour, IStackable
 		return route;
 	}
 
-	public void Pickup(Transform anchor)
+	public void Pickup(IStackable holder, Transform anchor)
 	{
-		heldBy = anchor;
+		this.holder = holder;
+		this.anchor = anchor;
+
+		Parcel parcel = anchor.GetComponent<Parcel>();
+		if (parcel)
+		{
+			parcel.aboveStack = this;
+		}
+
 		gameObject.layer = LayerMask.NameToLayer("Carried Parcel");
 		rb.isKinematic = true;
 		transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
@@ -64,7 +74,22 @@ public class Parcel : MonoBehaviour, IStackable
 
 	public void Drop()
 	{
-		heldBy = null;
+		// Check if there is a parcel above and shift it down
+		if (aboveStack != null)
+		{
+			aboveStack.Pickup(holder, anchor);
+		}
+
+		if (holder != null)
+		{
+			holder.RemoveFromList(this);
+		}
+
+		holder = null;
+		anchor = null;
+		aboveStack = null;
+
+
 		gameObject.layer = LayerMask.NameToLayer("Parcel");
 		rb.isKinematic = false;
 		
@@ -94,5 +119,10 @@ public class Parcel : MonoBehaviour, IStackable
 		if (Damaged) { points /= 2; }
 
 		return points;
+	}
+
+	public void RemoveFromList(IStackable item)
+	{
+		throw new System.NotImplementedException();
 	}
 }

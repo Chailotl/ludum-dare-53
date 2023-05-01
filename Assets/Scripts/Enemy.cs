@@ -27,4 +27,9 @@ public class Enemy : MonoBehaviour, IStackable
 	{
 		return stackingPoint;
 	}
+
+	public void RemoveFromList(IStackable item)
+	{
+		throw new System.NotImplementedException();
+	}
 }

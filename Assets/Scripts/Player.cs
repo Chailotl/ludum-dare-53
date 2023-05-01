@@ -83,6 +83,14 @@ public class Player : MonoBehaviour, IStackable
 		return stackingPoint;
 	}
 
+	public void RemoveFromList(IStackable item)
+	{
+		if (item is Parcel)
+		{
+			carrying.Remove(item as Parcel);
+		}
+	}
+
 	private void OnMove(InputValue val)
 	{
 		moving = val.Get<Vector2>();
@@ -99,11 +107,11 @@ public class Player : MonoBehaviour, IStackable
 			{
 				if (carrying.Count == 0)
 				{
-					parcel.Pickup(transform);
+					parcel.Pickup(this, transform);
 				}
 				else
 				{
-					parcel.Pickup(carrying[carrying.Count - 1].transform);
+					parcel.Pickup(this, carrying[carrying.Count - 1].transform);
 				}
 
 				carrying.Add(parcel);

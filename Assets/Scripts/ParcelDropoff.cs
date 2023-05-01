@@ -11,7 +11,8 @@ public class ParcelDropoff : MonoBehaviour
 		{
 			GameManager.AddScore(parcel.GetPoints());
 			GameManager.DeliverParcel(parcel);
-			Destroy(parcel.gameObject);
+			parcel.Drop();
+			Destroy(parcel.gameObject, 5f);
 		}
 	}
 }
