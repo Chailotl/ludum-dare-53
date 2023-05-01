@@ -90,6 +90,13 @@ public class Player : MonoBehaviour, IStackable
 		{
 			render.flipX = true;
 		}
+
+		// Stick to ground
+		RaycastHit hit;
+		if (Physics.Raycast(new Ray(transform.position, Vector3.down), out hit, 2f, 1))
+		{
+			transform.position = hit.point + Vector3.up * 0.5f;
+		}
 	}
 
 	public void DropParcel()
