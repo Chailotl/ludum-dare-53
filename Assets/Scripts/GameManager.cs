@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
 	private int score = 0;
 	private static GameManager instance;
+	private AudioSource audio;
 
 	[Serializable]
 	public class DeliveryRoute
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		instance = this;
+		audio = GetComponent<AudioSource>();
 		foreach (DeliveryRoute route in deliveryRoutes)
 		{
 			GameObject parcel = Instantiate(parcelPrefab, route.parcelSpawnPoint.position, Quaternion.identity);
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
 	{
 		instance.score += score;
 		instance.scoreText.text = instance.score.ToString();
+		instance.audio.Play();
 	}
 
 	public static void DeliverParcel(Parcel parcel)
