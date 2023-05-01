@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 	private GameObject parcelPrefab;
 
 	[SerializeField]
+	private Player player;
+
+	[SerializeField]
 	private List<DeliveryRoute> deliveryRoutes = new List<DeliveryRoute>();
 
 	private int score = 0;
@@ -48,7 +51,7 @@ public class GameManager : MonoBehaviour
 
 	public static void DeliverParcel(Parcel parcel)
 	{
-		AddScore(parcel.GetPoints());
+		AddScore(parcel.GetPoints() * instance.player.CarryCount());
 
 		// Respawn parcel
 		DeliveryRoute route = parcel.GetRoute();

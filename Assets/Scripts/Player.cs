@@ -187,4 +187,9 @@ public class Player : MonoBehaviour, IStackable
 	{
 		GameManager.UpdateIndicators(carrying);
 	}
+
+	public int CarryCount()
+	{
+		return carrying.Count;
+	}
 }
