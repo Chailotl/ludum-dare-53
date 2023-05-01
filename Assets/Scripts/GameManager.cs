@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
 	private Player player;
 
 	[SerializeField]
+	private int spawnNabbersEveryN = 3;
+
+	[SerializeField]
 	private List<DeliveryRoute> deliveryRoutes = new List<DeliveryRoute>();
 
 	private int score = 0;
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour
 	private AudioSource audio;
 
 	public static int parcelsStolen = 0;
+	private int deliveries = 0;
 
 	[Serializable]
 	public class DeliveryRoute
@@ -63,6 +67,7 @@ public class GameManager : MonoBehaviour
 
 	public static void DeliverParcel(Parcel parcel)
 	{
+		++instance.deliveries;
 		AddScore(parcel.GetPoints() * instance.player.CarryCount());
 
 		// Respawn parcel
@@ -72,10 +77,13 @@ public class GameManager : MonoBehaviour
 		go.GetComponent<Parcel>().SetRoute(route);
 
 		// Spawn another nabber
-		GameObject[] burrows = GameObject.FindGameObjectsWithTag("Burrow");
-		int i = UnityEngine.Random.Range(0, burrows.Length);
+		if (instance.deliveries % instance.spawnNabbersEveryN == 0)
+		{
+			GameObject[] burrows = GameObject.FindGameObjectsWithTag("Burrow");
+			int i = UnityEngine.Random.Range(0, burrows.Length);
 
-		GameObject nabber = Instantiate(instance.nabberPrefab, burrows[i].transform.position, Quaternion.identity);
+			GameObject nabber = Instantiate(instance.nabberPrefab, burrows[i].transform.position, Quaternion.identity);
+		}
 	}
 
 	public static void UpdateIndicators(List<Parcel> parcels)
