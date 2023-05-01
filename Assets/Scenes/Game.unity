@@ -24442,6 +24442,7 @@ MonoBehaviour:
     destination: {fileID: 503442391}
     parcelSpawnPoint: {fileID: 1828720354}
     points: 40
+  parcelsStolen: 0
 --- !u!114 &1562388291
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -59,10 +59,13 @@ public class Nabber : MonoBehaviour, IStackable
 				List<Parcel> parcels = GetComponentInChildren<ParcelPickup>().parcels;
 				if (parcels.Count > 0)
 				{
-					parcels[0].Pickup(this, transform);
-					heldParcel = parcels[0];
-					
-					stealAudio.Play();
+					if (parcels[0].GetHolder() == null)
+					{
+						parcels[0].Pickup(this, transform);
+						heldParcel = parcels[0];
+
+						stealAudio.Play();
+					}
 				}
 			}
 
