@@ -9,6 +9,8 @@ public class Nabber : MonoBehaviour, IStackable
 	[SerializeField]
 	private Vector3 stackingPoint = Vector3.up * 0.5f;
 	[SerializeField]
+	private Quaternion stackingRotation = Quaternion.identity;
+	[SerializeField]
 	private GameObject damagePrefab;
 
 	private NavMeshAgent agent;
@@ -78,13 +80,21 @@ public class Nabber : MonoBehaviour, IStackable
 				}
 			}
 
-			agent.destination = closestTarget.transform.position;
+			if (closestTarget != null)
+			{
+				agent.destination = closestTarget.transform.position;
+			}
 		}
 	}
 
 	public Vector3 GetStackingPoint()
 	{
 		return stackingPoint;
+	}
+
+	public Quaternion GetStackingRotation()
+	{
+		return stackingRotation;
 	}
 
 	public void RemoveFromList(IStackable item)

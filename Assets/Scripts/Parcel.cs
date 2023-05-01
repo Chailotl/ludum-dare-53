@@ -29,11 +29,28 @@ public class Parcel : MonoBehaviour, IStackable
 		render.material = mats[Random.Range(0, mats.Count)];
 	}
 
+	void Update()
+	{
+		IStackable stack;
+		if (anchor != null && (stack = anchor.GetComponent<IStackable>()) != null)
+		{
+			if (stack != holder) { return; }
+
+			// Anchor point
+			transform.position = anchor.position + stack.GetStackingPoint();
+
+			// Random shake
+			transform.position += new Vector3(Mathf.PerlinNoise(Time.time / 3f + seed, 0) - 0.5f, 0, Mathf.PerlinNoise(Time.time / 3f + seed, 100) - 0.5f) / 6f;
+		}
+	}
+
 	void FixedUpdate()
 	{
 		IStackable stack;
 		if (anchor != null && (stack = anchor.GetComponent<IStackable>()) != null)
 		{
+			if (stack == holder) { return; }
+
 			// Anchor point
 			transform.position = anchor.position + stack.GetStackingPoint();
 
@@ -70,7 +87,19 @@ public class Parcel : MonoBehaviour, IStackable
 
 		gameObject.layer = LayerMask.NameToLayer("Carried Parcel");
 		rb.isKinematic = true;
-		transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+
+
+		// Apply rotation
+		Quaternion q = holder.GetStackingRotation();
+
+		if (q == Quaternion.identity)
+		{
+			transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+		}
+		else
+		{
+			transform.rotation = q;
+		}
 	}
 
 	public void Drop()
