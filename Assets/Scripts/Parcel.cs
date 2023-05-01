@@ -73,10 +73,8 @@ public class Parcel : MonoBehaviour, IStackable
 		transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 	}
 
-	public void Drop(bool delivered = false)
+	public void Drop()
 	{
-		if (delivered) { this.delivered = true; }
-
 		// Clear anchor's aboveStack
 		Parcel parcel = anchor.GetComponent<Parcel>();
 

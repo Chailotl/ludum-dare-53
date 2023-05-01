@@ -160,7 +160,7 @@ public class Player : MonoBehaviour, IStackable
 
 	private void OnAttack()
 	{
-		if (carrying.Count == 0)
+		if (carrying.Count == 0 && attackTimer <= 0)
 		{
 			animator.Play("Bun Punch");
 			attackTimer = 40f / 60f;

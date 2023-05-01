@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1735315015640618720}
   m_Layer: 8
   m_Name: Parcel
-  m_TagString: Untagged
+  m_TagString: Parcel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,8 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3cb75fa19b42142b9861ea66df20df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heldBy: {fileID: 0}
-  destination: {fileID: 0}
   stackingPoint: {x: 0, y: 0.336, z: 0}
   render: {fileID: 2717821396218262328}
   mats:
@@ -86,6 +84,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 90cf4dd0526ba64439ce3e42c890cf33, type: 2}
   - {fileID: 2100000, guid: 9a469e519a9bf0f41b23aceb42a9ba5c, type: 2}
   - {fileID: 2100000, guid: e778243aab2cf664bae306c6445d3212, type: 2}
+  delivered: 0
+  aboveStack: {fileID: 0}
 --- !u!1001 &8050841764307872554
 PrefabInstance:
   m_ObjectHideFlags: 0

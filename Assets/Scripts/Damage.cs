@@ -28,6 +28,16 @@ public class Damage : MonoBehaviour
 		}
 		else if (damageType == DamageType.Enemy)
 		{
+			Nabber enemy = other.GetComponent<Nabber>();
+
+			Debug.Log(other);
+			Debug.Log(enemy);
+			if (enemy != null)
+			{
+				Debug.Log("b");
+				enemy.Hurt();
+			}
+
 			// funny :)
 			/*Parcel parcel = other.GetComponent<Parcel>();
 			if (parcel != null)

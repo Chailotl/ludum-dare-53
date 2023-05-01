@@ -8,8 +8,8 @@ public class ParcelPickup : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Parcel parcel;
-		if (parcel = other.GetComponent<Parcel>())
+		Parcel parcel = other.GetComponent<Parcel>();
+		if (parcel && !parcel.delivered)
 		{
 			parcels.Add(parcel);
 		}
@@ -17,8 +17,8 @@ public class ParcelPickup : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
-		Parcel parcel;
-		if (parcel = other.GetComponent<Parcel>())
+		Parcel parcel = other.GetComponent<Parcel>();
+		if (parcel)
 		{
 			parcels.Remove(parcel);
 		}
