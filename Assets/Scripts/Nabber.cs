@@ -75,7 +75,7 @@ public class Nabber : MonoBehaviour, IStackable
 			foreach (GameObject target in targets)
 			{
 				// ignore parcels held by other nabbers
-				if (heldParcel != null)
+				if (heldParcel == null)
 				{
 					if (target.GetComponent<Parcel>().GetHolder() is Nabber)
 					{
