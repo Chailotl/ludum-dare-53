@@ -2032,6 +2032,7 @@ MonoBehaviour:
   moveSpeed: 5
   carrySpeedLoss: 0.5
   accel: 35
+  damagePrefab: {fileID: 1601353241817031395, guid: 1cc56f87a2217ea4fbf1e1387120385e, type: 3}
   animator: {fileID: 1056775260}
   render: {fileID: 1056775259}
   stackingPoint: {x: 0, y: 0.5, z: 0.4}

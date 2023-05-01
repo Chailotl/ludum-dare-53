@@ -14,17 +14,23 @@ public class Player : MonoBehaviour, IStackable
 	private float accel = 25;
 
 	[SerializeField]
+	private GameObject damagePrefab;
+
+	[SerializeField]
 	private Animator animator;
 	[SerializeField]
 	private SpriteRenderer render;
 	[SerializeField]
 	private Vector3 stackingPoint = Vector3.up * 0.5f;
 
+	private float attackTimer = 0;
+	private bool waitingToAttack = false;
+	private float hurtTimer = 0;
+
 	private List<Parcel> carrying = new List<Parcel>();
 
 	// Input
 	private Vector2 moving = Vector2.zero;
-	private float attacking = 0;
 
 	// Physics
 	private Rigidbody rb;
@@ -38,7 +44,7 @@ public class Player : MonoBehaviour, IStackable
 	void Update()
 	{
 		Vector2 speed = moving * (moveSpeed - carrying.Count * carrySpeedLoss);
-		if (attacking > 0) { speed *= 0.25f; }
+		if (attackTimer > 0) { speed *= 0.25f; }
 
 		vel = Vector3.MoveTowards(vel, new Vector3(speed.x, 0, speed.y), accel * Time.deltaTime);
 
@@ -49,9 +55,22 @@ public class Player : MonoBehaviour, IStackable
 		// Animate character
 		bool carryingParcels = carrying.Count > 0;
 
-		if (attacking > 0)
+		if (attackTimer > 0)
 		{
-			attacking -= Time.deltaTime;
+			attackTimer -= Time.deltaTime;
+
+			if (waitingToAttack && attackTimer < 25f / 60f)
+			{
+				waitingToAttack = false;
+				Vector3 side = render.flipX ? Vector3.left : Vector3.right;
+				Damage damage = Instantiate(damagePrefab, transform.position + side, Quaternion.identity).GetComponent<Damage>();
+				damage.damageType = Damage.DamageType.Enemy;
+			}
+		}
+		else if (hurtTimer > 0)
+		{
+			hurtTimer -= Time.deltaTime;
+			animator.Play("Bun Hurt");
 		}
 		else if (vel.sqrMagnitude > 0.05f && (moving.x != 0 || moving.y != 0))
 		{
@@ -82,6 +101,12 @@ public class Player : MonoBehaviour, IStackable
 		carrying.Remove(parcel);
 		UpdateIndicators();
 		parcel.Drop();
+	}
+
+	public void Hurt()
+	{
+		hurtTimer = 0.5f;
+		DropParcel();
 	}
 
 	public Vector3 GetStackingPoint()
@@ -138,8 +163,8 @@ public class Player : MonoBehaviour, IStackable
 		if (carrying.Count == 0)
 		{
 			animator.Play("Bun Punch");
-			attacking = 40f/60f;
-				//animator.GetCurrentAnimatorClipInfo(0).Length;
+			attackTimer = 40f / 60f;
+			waitingToAttack = true;
 		}
 	}
 
