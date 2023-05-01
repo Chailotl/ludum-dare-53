@@ -3,11 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
 	[SerializeField]
 	private TextMeshProUGUI scoreText;
+	[SerializeField]
+	private GameObject gameOverOverlay;
+	[SerializeField]
+	private TextMeshProUGUI finalScoreText;
 
 	[SerializeField]
 	private GameObject parcelPrefab;
@@ -27,7 +32,7 @@ public class GameManager : MonoBehaviour
 	private static GameManager instance;
 	private AudioSource audio;
 
-	public static int parcelsStolen = 0;
+	public int parcelsStolen = 0;
 	private int deliveries = 0;
 
 	[Serializable]
@@ -55,7 +60,9 @@ public class GameManager : MonoBehaviour
 	{
 		if (parcelsStolen == 4)
 		{
-			
+			player.GetComponent<PlayerInput>().enabled = false;
+			gameOverOverlay.SetActive(true);
+			finalScoreText.text = "final score: " + score;
 		}
 	}
 
@@ -82,6 +89,11 @@ public class GameManager : MonoBehaviour
 		{
 			instance.SpawnNabber();
 		}
+	}
+
+	public static void StoleParcel()
+	{
+		++instance.parcelsStolen;
 	}
 
 	private void SpawnNabber()

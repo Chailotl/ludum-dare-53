@@ -74,6 +74,15 @@ public class Nabber : MonoBehaviour, IStackable
 
 			foreach (GameObject target in targets)
 			{
+				// ignore parcels held by other nabbers
+				if (heldParcel != null)
+				{
+					if (target.GetComponent<Parcel>().GetHolder() is Nabber)
+					{
+						continue;
+					}
+				}
+
 				float dist = Vector3.Distance(transform.position, target.transform.position);
 				if (dist < closestDist)
 				{
@@ -94,7 +103,7 @@ public class Nabber : MonoBehaviour, IStackable
 				{
 					Destroy(heldParcel.gameObject);
 					heldParcel = null;
-					++GameManager.parcelsStolen;
+					GameManager.StoleParcel();
 				}
 			}
 

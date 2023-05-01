@@ -84,6 +84,11 @@ public class Parcel : MonoBehaviour, IStackable
 		return route;
 	}
 
+	public IStackable GetHolder()
+	{
+		return holder;
+	}
+
 	public void Pickup(IStackable holder, Transform anchor)
 	{
 		this.holder = holder;
